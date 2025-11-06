@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.SecureRandom;
@@ -29,7 +28,6 @@ public class HomeController {
     """;
 
     @GetMapping
-    @ResponseBody
     public String home(){
         return """
             %s
@@ -45,7 +43,6 @@ public class HomeController {
     }
 
     @GetMapping("/saludo")
-    @ResponseBody
     public String showFormSaludo(){
         return """
             %s
@@ -59,7 +56,6 @@ public class HomeController {
     }
 
     @PostMapping("/saludo/submit")
-    @ResponseBody
     public String handleSubmit(@RequestParam(name = "name", required=false) String name, 
                 @RequestParam(name = "email", required=false) String email){
         if (name == null || name.isBlank()){
